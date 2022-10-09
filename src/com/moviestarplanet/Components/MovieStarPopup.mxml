@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GradientCanvas xmlns="com.moviestarplanet.Components.*" xmlns:mx="http://www.adobe.com/2006/mxml" width="570" height="310" borderStyle="solid" borderThickness="0" borderColor="14869218" clipContent="false" verticalScrollPolicy="off" horizontalScrollPolicy="off" styleName="creamOverlay">
+	<mx:HBox height="35" horizontalGap="5" verticalAlign="middle" top="5" left="10" right="66" fontSize="16" fontWeight="bold">
+		<VipButton id="vipIcon" toolTip="Is VIP member" disableClick="false" visible="true" includeInLayout="false" height="16" click=""/>
+		<JuryButton id="juryIcon" toolTip="Is Jury member" disableClick="false" visible="true" includeInLayout="false" height="16"/>
+		<AdminButton id="lblModerator" toolTip="Is MSP member" disableClick="false" visible="true" includeInLayout="false" height="16"/>
+		<mx:Label id="lblActorName" width="100%" fontSize="17"/>
+	</mx:HBox>
+	<mx:TabNavigator id="tabNavigator" visible="true" width="190" creationPolicy="all" alpha="1" bottom="5" top="62" left="10" backgroundAlpha="0" borderStyle="none"> 
+		<mx:VBox id="buttonVbox" horizontalScrollPolicy="off" label="Action">
+			<mx:Button id="btnGoToRoom" width="100%" textAlign="left" fontWeight="normal" label="{resourceManager.getString('myResources', 'OPEN_PROFILE')}"/>
+			<mx:Button id="btnFriend" width="100%" visible="false" includeInLayout="false" textAlign="left" fontWeight="normal" label="{resourceManager.getString('myResources', 'WAITING_FRIENDS')}"/>
+			<mx:Button id="btnBoyfriend" width="100%" textAlign="left" fontWeight="normal" />
+			<mx:Button id="btnBreakUp" width="100%" visible="false" includeInLayout="false" textAlign="left" fontWeight="normal"/>
+			<mx:Button id="btnGiveAutograph" width="100%" textAlign="left" fontWeight="normal" label="{resourceManager.getString('myResources','GIVE_AUTOGRAPH')}"/>
+			<mx:Button id="btnGiveGift" width="100%" textAlign="left" fontWeight="normal" label="{resourceManager.getString('myResources','GIVE_GIFT')}"/>
+			<mx:Button id="btnMail" width="100%" textAlign="left" fontWeight="normal" label="{resourceManager.getString('myResources','SEND_MAIL')}"/>
+			<mx:Button id="btnReport" width="100%" textAlign="left" fontWeight="normal" label="{resourceManager.getString('myResources','REPORT_BAD')}"/>
+		</mx:VBox>
+		<mx:VBox id="gamesVbox" horizontalScrollPolicy="off" label="{resourceManager.getString('myResources','PLAY_GAME')}" >
+			
+		</mx:VBox>
+	</mx:TabNavigator>
+	<CloseButton toolTip="Close" right="10" top="10" click=""/>
+	<mx:Canvas id="detailsCanvas" verticalScrollPolicy="off" horizontalScrollPolicy="off" clipContent="false" right="1" top="28" bottom="10" left="220">
+		<mx:Image source="img/triangle_lowerleft.png" rotation="45" width="32" right="160" top="40"/>
+		<mx:TextArea id="lblText2" height="82" width="179" editable="false" borderStyle="solid" borderThickness="0" backgroundColor="#00ffffff" color="#00000000" top="23" right="10"/>
+		<MSP_ClickImage id="playTwitButton" source="img/32x32/Sound Green On.png" toolTip="Hear what the actor is doing" width="20" height="20" visible="true" y="75" x="137" click=""/>
+		<mx:Button id="btnLock" label="Chatlog" width="95" visible="false" toolTip="" right="127" bottom="40" click=""/>
+		<mx:Button id="btnPayment" label="Transactions" width="109" visible="false" toolTip="" right="10" bottom="40" click=""/>
+		<mx:Button id="btnPassword" label="Hacked" width="109" visible="false" toolTip="" right="10" bottom="10" click=""/>
+
+		<mx:Canvas x="160" y="146" width="85" height="125">
+			<mx:Label id="lblBoyfriendHeader" text="Bestfriend" y="9" width="65" fontWeight="normal" left="10" textAlign="center" color="0"/>
+			<MSP_ClickImage id="boyFriendSnapshot" left="10" y="30" width="65" height="65">
+				<source>https://snapshots.mspcdns.com/v1/snapshots/MSP_PL_moviestar_0_0_0_1.jpg?SMode=pqh1</source>
+			</MSP_ClickImage>
+			<mx:LinkButton id="lblBoyfriendName" label="Admin" y="100" width="65" fontWeight="normal" left="10" textAlign="center" color="0" height="20"/>
+		</mx:Canvas>
+		
+		<mx:Canvas x="254" y="146" width="85" height="125">
+			<mx:Label id="lblBestfriendHeader" text="Girlfriend" y="9" width="65" fontWeight="normal" left="10" textAlign="center" color="0"/>
+			<MSP_ClickImage id="bestFriendSnapshot" left="10" y="30" width="65" height="65">
+				<source>https://snapshots.mspcdns.com/v1/snapshots/MSP_PL_moviestar_0_0_0_1.jpg?SMode=pqh1</source>
+			</MSP_ClickImage>
+			<mx:LinkButton id="lblBestfriendName" label="CoAdmin" y="100" width="65" fontWeight="normal" left="10" textAlign="center" color="0" height="20"/>
+		</mx:Canvas>
+	</mx:Canvas>
+	<mx:Label id="lblLevel" width="190" x="10" y="30"/>
+</GradientCanvas>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" backgroundColor="0" xmlns:mspViewComponents="com.moviestarplanet.Components.ViewComponent.*" xmlns:mspComponents="com.moviestarplanet.Components.*" verticalScrollPolicy="off" horizontalScrollPolicy="off" preloader="Preloader" applicationComplete="NotifyUserAboutBeta()" preinitialize="onPreInitialize()">
+	<mx:Script>
+		<![CDATA[
+			import mx.controls.Alert;
+			
+			public static var Instance:Main;
+			
+			private function onPreInitialize() : void
+			{
+				Instance = this;
+			}
+			
+			public static function NotifyUserAboutBeta() : void
+			{
+				//showAlert("This is an beta version of MSP Retro. Some features may not work as they are W.I.P", "Beta Notice");
+			}
+		
+			public static function showAlert(param1:String = "", param2:String = "", param3:uint = 4, param4:Sprite = null, param5:Function = null, param6:Class = null, param7:uint = 4) : Alert
+     		{
+         		return Alert.show(param1,param2,param3,param4,param5,param6,param7);
+      		}
+		]]>
+	</mx:Script>
+	<mx:Metadata>
+		[ResourceBundle("myResources")]
+	</mx:Metadata>
+	<mx:Canvas horizontalCenter="0" verticalCenter="0" width="1240" height="720" id="mainCanvas">
+		<mspViewComponents:ViewComponentViewStack width="1240" percentHeight="100" id="applicationViewStack" horizontalCenter="0" clipContent="true" y="0">
+			<mspComponents:MovieStarPopup />
+			<mspComponents:FrontPage2 width="100%" height="100%" />
+			<mx:Canvas id="MainView" backgroundAlpha="0" clipContent="true" percentWidth="100" percentHeight="100" horizontalScrollPolicy="off" verticalScrollPolicy="off" x="1169" y="55">
+				<mspViewComponents:ViewComponentViewStack id="mainMenuViewStack" width="980" height="500" horizontalScrollPolicy="off" verticalScrollPolicy="off" y="80" x="235">
+					<mx:Canvas />
+					<mspComponents:MyRoom label="My Room" width="100%" height="100%">
+					</mspComponents:MyRoom>
+				</mspViewComponents:ViewComponentViewStack>
+			</mx:Canvas>
+		</mspViewComponents:ViewComponentViewStack>
+	</mx:Canvas>
+	<mx:Style source="Application.css"/>
+</mx:Application>

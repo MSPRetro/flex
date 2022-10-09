@@ -1,0 +1,20 @@
+/* CSS file */
+/*
+@font-face 
+{
+    src:url("../assets/EmbedArial.ttf");
+    fontFamily: EmbedArial;
+}
+*/
+
+global
+{
+	fontFamily: "Arial"; /* EmbedArial */ 
+	backgroundAlpha: 0.3;
+	backgroundColor: 0;
+	color: 16777215;
+	modalTransparencyBlur: 0;
+	modalTransparencyColor: 3355443;
+	width: 1240;
+	height: 720;
+}

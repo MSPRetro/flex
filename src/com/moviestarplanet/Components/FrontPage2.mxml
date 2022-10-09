@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewComponentCanvas xmlns="com.moviestarplanet.Components.ViewComponent.*" xmlns:mx="http://www.adobe.com/2006/mxml" width="1240" height="720" borderColor="12040892" backgroundColor="14466493" backgroundAlpha="0" creationComplete="OnCreationComplete()">
+	<mx:Script>
+		<![CDATA[
+			import mx.resources.ResourceManager;
+			
+			private var slides:Array = 
+			[
+				ResourceManager.getInstance().getString("myResources","SWF_MOVIESTAR"),
+				ResourceManager.getInstance().getString("myResources","SWF_FAMOUS"),
+				ResourceManager.getInstance().getString("myResources","SWF_DRESSUP"),
+				ResourceManager.getInstance().getString("myResources","SWF_COSTUMES"),
+				ResourceManager.getInstance().getString("myResources","SWF_MAKEMOVIE"),
+				ResourceManager.getInstance().getString("myResources","SWF_CHAT")
+			];
+			private var loggedIn:Boolean = false;
+			private var usernameChanged:Boolean = false;
+			private var passwordChanged:Boolean = false;
+			private var slideNumber:Number = -1;
+			
+			private function btnSignInClicked() : void
+			{
+				if (!usernameChanged || txtUserName.text.length <= 0) 
+				{
+					return txtUserName.setFocus();
+				}
+				
+				if (!passwordChanged || txtPassWord.length <= 0)
+				{
+					return txtPassWord.setFocus();
+				}
+				
+				if (btnLogin.enabled)
+				{
+					Main.showAlert("not implemented", "notice");
+				}
+			}
+			
+			private function onUsernameEnter() : void
+			{
+				if (!usernameChanged)
+				{
+					usernameChanged = true;
+					txtUserName.text = "";
+            		txtUserName.setStyle("textAlign","left");
+				}
+			}
+			
+			private function onPasswordEnter() : void
+			{
+				if (!passwordChanged)
+				{
+					passwordChanged = true;
+            		txtPassWord.text = "";
+            		txtPassWord.displayAsPassword = true;
+            		txtPassWord.setStyle("textAlign","left");
+				}
+			}
+			
+			private function dispose() : void
+			{
+				// extend with moviestar
+				removeEventListener(Event.ENTER_FRAME,this.maybeNext);
+				if (this.slideSwf != null) this.slideSwf.unloadAndStop(true);
+				if (this.frontpage != null && this.frontpage.parent != null) this.frontpage.parent.removeChild(this.frontpage);
+				if (this.frontpage != null) this.frontpage.unloadAndStop(true);
+				this.frontpage = null;
+			}
+			
+			private function doneLoad(event:Event) : void
+			{
+				 var target:SWFLoader = event.currentTarget as SWFLoader;
+				 if (target.source.toString().indexOf("dyn.swf") > 0)
+				 {
+				 	// Utils.DynTxtFindAndReplace(_loc2_.content as DisplayObjectContainer,false);
+				 }
+			}
+			
+			private function slideShowNext(event:Event) : void
+			{
+				 if(this.slideNumber >= this.slides.length - 1)
+		         {
+		            this.slideNumber = 0;
+		         }
+		         else
+		         {
+		            ++this.slideNumber;
+		         }
+		         this.slideSwf.addEventListener(Event.COMPLETE,this.doneLoad);
+		         this.slideSwf.source = this.slides[this.slideNumber];
+			}
+			
+			private function maybeNext(event:Event = null) : void
+			{	
+				 if(this.slideSwf == null)
+		         {
+		            return;
+		         }
+		         var playingSwf:MovieClip = this.slideSwf.content as MovieClip;
+		         if(playingSwf != null && playingSwf.currentFrame == 100)
+		         {
+		            this.slideShowNext(null);
+		         }
+			}
+			
+			private function frameLoaded() : void
+			{
+				if (this.loggedIn)
+				{
+					// TODO; dispose();
+				}
+				addEventListener(Event.ENTER_FRAME,this.maybeNext,false,0,true);
+				slideShowNext(null); // show initial slide
+			}
+			
+			private function OnCreationComplete() : void
+			{
+				trace(this.slides);
+			}
+		]]>
+	</mx:Script>
+	<mx:SWFLoader id="frontpage" cacheAsBitmap="true" x="-3" y="0" percentWidth="100" percentHeight="100" source="{resourceManager.getString('myResources','SWF_FRONTPAGE')}" complete="frameLoaded()"/>
+	<mx:TextInput text="{resourceManager.getString('myResources','USERNAME')}" id="txtUserName" borderStyle="none" fontSize="12" backgroundColor="12427206" color="5453402" textAlign="center" fontWeight="bold" x="1061" y="357" width="121" focusIn="onUsernameEnter()"/>
+	<mx:TextInput text="{resourceManager.getString('myResources','PASSWORD')}" id="txtPassWord" borderStyle="none" fontSize="12" backgroundColor="12427206" color="5453402" textAlign="center" fontWeight="bold" x="1061" y="387" width="121" displayAsPassword="false" focusIn="onPasswordEnter()"/>
+	<mx:Button label="{resourceManager.getString('myResources','LOGIN')}" id="btnLogin" fillAlphas="[1,1]" fillColors="[12427206,5453402]" color="16777062" themeColor="16711422" fontWeight="bold" borderColor="12427206" x="1058" y="417" width="126" click="btnSignInClicked()"/>
+	<mx:Button label="{resourceManager.getString('myResources','NEW_USER')}" id="btnJoinNow" fillAlphas="[1,1]" fillColors="[12427206,5453402]" color="16777062" themeColor="16711422" fontWeight="bold" borderColor="12427206" x="1058" y="255" width="126"/>
+	<mx:Button label="{resourceManager.getString('myResources','FORGOT_PASSWORD')}" id="btnForgotPassword" fillAlphas="[1,1]" fillColors="[12427206,5453402]" color="16777062" themeColor="16711422" fontWeight="bold" borderColor="12427206" x="1058" y="448" width="126"/>
+	<mx:Canvas x="323" y="176" width="620" height="480" id="slideCanvas" clipContent="true" backgroundAlpha="0">
+		<mx:SWFLoader id="slideSwf" percentWidth="100" percentHeight="100" mask="{this.imgInMask}"/>
+		<mx:Box id="imgInMask" backgroundAlpha="1" backgroundColor="11438473" x="0" y="0" percentWidth="100" percentHeight="100"/>
+	</mx:Canvas>
+	<mx:HBox bottom="0" left="30" right="30" horizontalAlign="center" verticalAlign="middle" horizontalGap="30" height="30" backgroundAlpha="0">
+		<mx:LinkButton id="_FrontPage2_LinkButton1" label="{resourceManager.getString('myResources','DISCORD_SERVER')}" color="15524863" fontWeight="normal" fontSize="12" themeColor="12427206"/>
+		<mx:LinkButton label="© MSPRetro 2022" color="15524863" fontWeight="normal" fontSize="12" themeColor="12427206"/>
+	</mx:HBox>
+	<mx:Label id="actorCountLabel" text="{resourceManager.getString('myResources','USERS')}" color="5453402" textAlign="center" fontWeight="bold" x="1054" y="299" width="134"/>
+	<mx:Label id="movieCountLabel" text="{resourceManager.getString('myResources','MOVIES')}" color="5453402" textAlign="center" fontWeight="bold" x="1054" y="319" width="134"/>
+</ViewComponentCanvas>

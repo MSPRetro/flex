@@ -1,0 +1,249 @@
+/* CSS file */
+/*
+@font-face 
+{
+    src:url("../assets/EmbedArial.ttf");
+    fontFamily: EmbedArial;
+}
+*/
+
+@font-face
+{
+	src: url("assets/EmbedArial.ttf");
+	fontFamily: EmbedArial;
+	advancedAntiAliasing: true;
+}
+
+@font-face
+{
+	src: url("assets/EmbedArialBold.ttf");
+	fontFamily: EmbedArial;
+	fontWeight: bold;
+	advancedAntiAliasing: true;
+}
+
+Canvas
+{
+    color : 16777215;
+    backgroundAlpha : 0;
+}
+
+.MSPSkinColorPickerSwatchStyle
+{
+    columnCount : 25;
+    swatchHighlightColor : 16777215;
+    verticalGap : 0;
+    swatchHighlightSize : 0;
+    swatchHeight : 40;
+    textFieldWidth : 0;
+    swatchGridBackgroundColor : 12303291;
+    horizontalGap : 0;
+    swatchGridBorderSize : 0;
+    swatchWidth : 20;
+    backgroundColor : 15066855;
+    previewHeight : 20;
+    previewWidth : 0;
+}
+
+.MPSColorPicker
+{
+    swatchBorderSize : 0;
+    swatchPanelStyleName : MSPColorPickerSwatchStyle;
+}
+
+ComboBox
+{
+    color : 0;
+}
+
+.blackOverlay
+{
+    fillAlphas : 0.92, 1;
+    cornerRadius : 10;
+    fillColors : 4473924, 0;
+    dropShadowEnabled : false;
+    angle : 90;
+    backgroundAlpha : 0.9;
+    colorsConfiguration : 2;
+    dropShadowColor : 0;
+    borderThickness : 0;
+    borderStyle : solid;
+}
+
+TextArea
+{
+    color : 16777215;
+    cornerRadius : 5;
+    borderStyle : solid;
+    backgroundColor : 8947848;
+}
+
+Alert
+{
+    borderColor : 0;
+    roundedBottomCorners : true;
+    dropShadowEnabled : true;
+    backgroundAlpha : 0.9;
+    borderStyle : solid;
+    footerColors : 0, 0;
+    titleStyleName : alertTitle;
+    highlightAlphas : 0.59, 0;
+    cornerRadius : 10;
+    headerColors : 0, 6710886;
+    shadowDirection : right;
+    headerHeight : 30;
+    buttonStyleName : alertButton;
+    backgroundColor : 0;
+    shadowDistance : 10;
+}
+
+Application
+{
+    verticalScrollPolicy : off;
+    fontSize : 12;
+    horizontalScrollPolicy : off;
+    fontFamily : EmbedArial;
+}
+
+Text
+{
+    color : 16777215;
+    cornerRadius : 5;
+    borderStyle : solid;
+    backgroundColor : 8947848;
+}
+
+.titleBarOverlay
+{
+    fillAlphas : 0.9, 1;
+    cornerRadius : 6;
+    fillColors : 13408512, 9988609;
+    dropShadowEnabled : false;
+    angle : 90;
+    backgroundAlpha : 1;
+    colorsConfiguration : 2;
+    dropShadowColor : 0;
+    borderThickness : 0;
+    borderStyle : solid;
+}
+
+.framingLabel
+{
+    textAlign : center;
+    color : 11959308;
+    fontWeight : normal;
+    fontSize : 26;
+    fontFamily : Arial;
+}
+
+RichTextEditor
+{
+    color : 16777215;
+    cornerRadius : 5;
+    borderStyle : solid;
+    backgroundColor : 8947848;
+}
+
+DataGrid
+{
+    color : 0;
+}
+
+FaceExpressionSelector
+{
+    fontSize : 10;
+}
+
+TextInput
+{
+    color : 16777215;
+    cornerRadius : 5;
+    borderStyle : solid;
+    backgroundColor : 8947848;
+}
+
+.MSPColorPickerSwatchStyle
+{
+    textFieldWidth : 0;
+    swatchHighlightColor : 16777215;
+    swatchGridBackgroundColor : 12303291;
+    verticalGap : 0;
+    swatchGridBorderSize : 0;
+    horizontalGap : 0;
+    swatchWidth : 20;
+    swatchHighlightSize : 0;
+    backgroundColor : 15066855;
+    previewHeight : 0;
+    swatchHeight : 20;
+    previewWidth : 0;
+}
+
+.silverOverlay
+{
+    fillAlphas : 0.9, 1;
+    cornerRadius : 10;
+    fillColors : 15658734, 10066329;
+    dropShadowEnabled : true;
+    shadowDirection : right;
+    angle : 90;
+    backgroundAlpha : 1;
+    colorsConfiguration : 2;
+    dropShadowColor : 0;
+    borderThickness : 0;
+    borderStyle : solid;
+    shadowDistance : 10;
+}
+
+Tree
+{
+    fontSize : 10;
+}
+
+.worldButton
+{
+    borderColor : 16511961;
+    color : 13474305;
+    fillAlphas : 1, 1, 1, 1;
+    fillColors : 16511961, 14862172, 16511961, 14862172;
+    textRollOverColor : 13474305;
+    fontSize : 6;
+    themeColor : 14862172;
+    textSelectedColor : 13474305;
+}
+
+.alertButton
+{
+    color : 15658734;
+    fillAlphas : 0.8, 0.8, 1, 1;
+    fillColors : 3355443, 6710886, 3355443, 13421772;
+    textRollOverColor : 16777215;
+    themeColor : 6710886;
+}
+
+.creamOverlay
+{
+    dropShadowEnabled : true;
+    colorsConfiguration : 2;
+    backgroundAlpha : 0.95;
+    dropShadowColor : 0;
+    borderStyle : solid;
+    color : 0;
+    fillAlphas : 0.9, 1;
+    cornerRadius : 10;
+    fillColors : 16777211, 16442272;
+    shadowDirection : right;
+    angle : 90;
+    borderThickness : 0;
+    shadowDistance : 10;
+}
+
+.MPSSkinColorPicker
+{
+    swatchBorderSize : 0;
+    swatchPanelStyleName : MSPSkinColorPickerSwatchStyle;
+}
+
+.alertTitle
+{
+    color : 16777215;
+}
